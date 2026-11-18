@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>QuickCart — Performance and DOM Events</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <main>
+      <header class="hero">
+        <p class="eyebrow">QuickCart practical</p>
+        <h1>Performance &amp; DOM events</h1>
+        <p>Try debounced search, throttled scrolling, and delegated actions.</p>
+      </header>
+
+      <section class="panel" aria-labelledby="search-title">
+        <h2 id="search-title">Debounced product search</h2>
+        <label for="search-input">Search products</label>
+        <input id="search-input" type="search" placeholder="Type a product name" />
+        <p id="search-status" class="status" aria-live="polite">
+          Search waits until you stop typing for 500 ms.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="bubble-title">
+        <h2 id="bubble-title">Event bubbling</h2>
+        <div id="bubble-demo" class="button-row">
+          <button type="button" data-bubble="yes">Bubble to parent</button>
+          <button type="button" data-bubble="stop">Stop propagation</button>
+        </div>
+        <p class="status">Open the browser console to see the parent handler.</p>
+      </section>
+
+      <section class="panel" aria-labelledby="list-title">
+        <h2 id="list-title">Delegated product removal</h2>
+        <ul id="product-list" class="product-list">
+          <li><span>Laptop</span><button type="button" data-action="remove">Remove</button></li>
+          <li><span>Mouse</span><button type="button" data-action="remove">Remove</button></li>
+          <li><span>Monitor</span><button type="button" data-action="remove">Remove</button></li>
+        </ul>
+        <p id="list-status" class="status" aria-live="polite">
+          One listener on the list handles every Remove button.
+        </p>
+      </section>
+
+      <section class="panel" aria-labelledby="memo-title">
+        <h2 id="memo-title">Memoized discount</h2>
+        <button id="discount-button" type="button">Calculate 10% discount twice</button>
+        <p id="discount-status" class="status" aria-live="polite"></p>
+      </section>
+
+      <section class="panel scroll-panel" aria-labelledby="scroll-title">
+        <h2 id="scroll-title">Throttled scroll</h2>
+        <p>Scroll this page. The scroll handler runs at most once per second.</p>
+        <p id="scroll-status" class="status" aria-live="polite">Scroll events: 0</p>
+      </section>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
